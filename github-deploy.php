@@ -52,8 +52,11 @@ $composer_bin_path = 'composer' . $php_version . '-sp';
 /* Set default update value to false */
 $update = false;
 
+/* Get the data from the webhook */
+$payload_data = file_get_contents('php://input');
+
 /* Parse data from GitHub hook payload */
-$payload = json_decode($_POST['payload']);
+$payload = json_decode($payload_data);
 
 /* Check that the ref contains data. On a GitHub push event it should always contain the HEAD path */
 if (empty($payload->ref)){
