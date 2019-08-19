@@ -1,5 +1,5 @@
 <?php
-/*
+/* TEST
 GitHub Auto-Deploy to ServerPilot by Matt Stone and Craig Bowler
 https://github.com/MeMattStone/github-auto-deploy
 
