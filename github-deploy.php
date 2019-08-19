@@ -1,5 +1,5 @@
 <?php
-/* TEST
+/*
 GitHub Auto-Deploy to ServerPilot by Matt Stone and Craig Bowler
 https://github.com/MeMattStone/github-auto-deploy
 
@@ -55,30 +55,24 @@ $update = false;
 /* Parse data from GitHub hook payload */
 $payload = json_decode($_POST['payload']);
 
-/* When merging and pushing to GitHub, the commits array will be empty. */
-if (empty($payload->commits)){
+/* Check that the ref contains data. On a GitHub push event it should always contain the HEAD path */
+if (empty($payload->ref)){
 
   /* In this case there is no way to know what branch was pushed to, so we will do an update. */
-  $update = true;
+  $update = false;
 
 } else {
 
-  /* Loop through commits */
-  foreach ($payload->commits as $commit) {
+  /* Set the branch this commit is for */
+  $branch = str_replace("refs/heads/", "", $payload->ref);
 
-    /* Set the branch this commit is for */
-    $branch = $commit->branch;
+  /* Check if this branch matches our defined branch to deploy */
+  if ($branch === $branch_to_deploy) {
 
-    /* Check if this branch matches our defined branch to deploy */
-    if ($branch === $branch_to_deploy || isset($commit->branches) && in_array($branch_to_deploy, $commit->branches)) {
+    /* Because this is a match we will do an update (and break out of the foreach loop) */
+    $update = true;
 
-      /* Because this is a match we will do an update (and break out of the foreach loop) */
-      $update = true;
-      break;
-
-    }
-
-  } /* End loop through commits */
+  }
 
 }
 
