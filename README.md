@@ -1,6 +1,6 @@
 # GitHub Auto-Deploy for ServerPilot
 
-Deploy your repositories automatically from GitHub to ServerPilot apps. This script can be easily modified to suit most LAMP environments, not just ServerPilot.
+Deploy your repositories automatically from GitHub to ServerPilot apps. This script can be easily modified to suit most LAMP or LEMP environments, not just ServerPilot.
 
 ## Getting Started
 
