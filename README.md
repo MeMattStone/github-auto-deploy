@@ -2,6 +2,8 @@
 
 Deploy your repositories automatically from GitHub to ServerPilot apps. This script can be easily modified to suit most LAMP or LEMP environments, not just ServerPilot.
 
+I also have a version of this script that works for BitBucket, you can find it here: https://bitbucket.org/matt-stone/bitbucket-auto-deploy/
+
 ## Getting Started
 
 These instructions will help you get this script deployed on a live system and the relevant webhook setup in GitHub.
