@@ -21,7 +21,7 @@ GitHub account with a repository to deploy from
 
 This script has been fully tested with ServerPilot using the following versions of PHP:
 
-5.6, 7.0, 7.1, 7.2, 7.3
+5.6, 7.0, 7.1, 7.2, 7.3, 7.4
 
 ### Installing
 
